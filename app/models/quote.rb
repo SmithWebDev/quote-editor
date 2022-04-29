@@ -3,7 +3,8 @@ class Quote < ApplicationRecord
 
   scope :ordered, -> { order(id: :desc) }
   after_create_commit lambda {
-                        broadcast_prepend_to 'quotes', partial: 'quotes/quote', locals: { quotes: self },
-                                                       target: 'quotes'
+                        # 'quotes' target option is the same as explicitly
+                        # calling target: 'quotes'
+                        broadcast_prepend_to 'quotes', partial: 'quotes/quote', locals: { quote: self }
                       }
 end
