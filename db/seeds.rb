@@ -4,14 +4,14 @@ Company.create!([
                   { name: 'KPMG' },
                   { name: 'PwC' }
                 ])
-Quote.create!([
-                { name: 'First Quote',
-                  company_id: 1 },
-                { name: 'Second Quote',
-                  company_id: 1 },
-                { name: 'Third Quote',
-                  company_id: 1 }
-              ])
+#Quote.create!([
+#                { name: 'First Quote',
+#                  company_id: 1 },
+#                { name: 'Second Quote',
+#                  company_id: 1 },
+#                { name: 'Third Quote',
+#                  company_id: 1 }
+#              ])
 User.create!([
                { email: 'accountant@kpmg.com',
                  password: 'password',
