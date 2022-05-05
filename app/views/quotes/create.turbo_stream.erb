@@ -6,3 +6,4 @@
 <%#   <%= partial: 'quotes/quote', locals: { quote: @quote }  %> %>
 <%# <% end %> %>
 <%= turbo_stream.update Quote.new, "" %>
+<%= turbo_stream.prepend 'flash', partial: 'layouts/flash' %>
