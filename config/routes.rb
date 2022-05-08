@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :line_item_dates
   root to: 'pages#home'
   devise_for :users
   resources :quotes do
