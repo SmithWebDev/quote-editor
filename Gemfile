@@ -49,6 +49,7 @@ gem 'annotate'
 gem 'devise'
 gem 'hirb'
 gem 'simple_form'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -62,6 +63,9 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem 'guard'
+  gem 'guard-ctags-bundler'
+  gem 'ruby-lsp', require: false
   gem 'web-console'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
