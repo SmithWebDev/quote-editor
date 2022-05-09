@@ -65,6 +65,7 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'guard'
   gem 'guard-ctags-bundler'
+  gem 'hotwire-livereload'
   gem 'ruby-lsp', require: false
   gem 'web-console'
 
