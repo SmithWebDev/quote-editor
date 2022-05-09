@@ -1,6 +1,6 @@
 class LineItemDatesController < ApplicationController
   before_action :set_quote
-  before_action :set_line_item_date, only: %i[show edit update destroy]
+  before_action :set_line_item_date, only: %i[edit update destroy]
 
   def edit; end
 
@@ -20,18 +20,11 @@ class LineItemDatesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /line_item_dates/1 or /line_item_dates/1.json
   def update
-    respond_to do |format|
-      if @line_item_date.update(line_item_date_params)
-        format.html do
-          redirect_to line_item_date_url(@line_item_date), notice: 'Line item date was successfully updated.'
-        end
-        format.json { render :show, status: :ok, location: @line_item_date }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @line_item_date.errors, status: :unprocessable_entity }
-      end
+    if @line_item_date.update(line_item_date_params)
+      redirect_to quote_path(@quote), notice: 'Date was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -40,12 +33,15 @@ class LineItemDatesController < ApplicationController
     @line_item_date.destroy
 
     respond_to do |format|
-      format.html { redirect_to line_item_dates_url, notice: 'Line item date was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to quote_path(@quote), notice: 'Date was successfully destroyed.' }
     end
   end
 
   private
+
+  def set_line_item_date
+    @line_item_date = @quote.line_item_dates.find(params[:id])
+  end
 
   def line_item_date_params
     params.require(:line_item_date).permit(:date)
