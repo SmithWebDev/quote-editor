@@ -1,56 +1,56 @@
 <%= turbo_frame_tag line_item_date do %>
-<div class="line-item-date">
-  <div class="line-item-date__header">
-    <h2 class="line-item-date__title">
-      <%= l(line_item_date.date, format: :long) %>
-    </h2>
-    <div class="line-item-date__actions">
-      <%= button_to 'Delete',
-      [quote, line_item_date],
-      method: :delete,
-      form: {data:{turbo_confirm: "Are you sure?"}},
-      class: 'btn btn--light' %>
-      <%= link_to 'Edit', [:edit, quote, line_item_date], class: 'btn btn--light' %>
-    </div>
-  </div>
-
-  <div class="line-item-date__body">
-    <div class="line-item line-item--header">
-      <div class="line-item__name">
-        <%= line_item.name %>
-        <div class="line-item__description">
-          <%= simple_format line_item.description %>
-        </div>
-      </div>
-      <div class="line-item_quantity-price">
-        <%= line_item.quantity %>
-        &times;
-        <%= number_to_currency line_item.unit_price %>
-      </div>
-      <div class="line-item_quantity">
-        <%= line_item.quantity %>
-      </div>
-      <div class="line-item__price">
-        <%= number_to_currency line_item.unit_price %>
-      </div>
-      <div class="line-item__actions">
+  <div class="line-item-date">
+    <div class="line-item-date__header">
+      <h2 class="line-item-date__title">
+        <%= l(line_item_date.date, format: :long) %>
+      </h2>
+      <div class="line-item-date__actions">
         <%= button_to 'Delete',
-          [quote, line_item_date, line_item],
+          [quote, line_item_date],
           method: :delete,
+          form: {data:{turbo_confirm: "Are you sure?"}},
           class: 'btn btn--light' %>
-        <%= link_to 'Edit',
+        <%= link_to 'Edit', [:edit, quote, line_item_date], class: 'btn btn--light' %>
+      </div>
+    </div>
+
+    <div class="line-item-date__body">
+      <div class="line-item line-item--header">
+        <div class="line-item__name">
+          <%= line_item.name %>
+          <div class="line-item__description">
+            <%= simple_format line_item.description %>
+          </div>
+        </div>
+        <div class="line-item_quantity-price">
+          <%= line_item.quantity %>
+          &times;
+          <%= number_to_currency line_item.unit_price %>
+        </div>
+        <div class="line-item_quantity">
+          <%= line_item.quantity %>
+        </div>
+        <div class="line-item__price">
+          <%= number_to_currency line_item.unit_price %>
+        </div>
+        <div class="line-item__actions">
+          <%= button_to 'Delete',
+            [quote, line_item_date, line_item],
+            method: :delete,
+            class: 'btn btn--light' %>
+          <%= link_to 'Edit',
           [:edit, quote, line_item_date, line_item],
           class: 'btn btn--light' %>
+        </div>
+      </div>
+
+      <%= render line_item_date.line_items, quote: quote, line_item_date: line_item_date %>
+
+      <div class="line-item-date__footer">
+        <%= link_to 'Add item',
+          [:new, quote, line_item_date, :line_item],
+          class: 'btn btn--primary' %>
       </div>
     </div>
-
-    <%= render line_item_date.line_items, quote: quote, line_item_date: line_item_date %>
-
-    <div class="line-item-date__footer">
-      <%= link_to 'Add item',
-        [:new, quote, line_item_date, :line_item],
-        class: 'btn btn--primary' %>
-    </div>
   </div>
-</div>
 <% end %>
