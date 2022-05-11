@@ -17,7 +17,7 @@
     flex: 1 1 100%;
     font-weight: bold;
 
-    @include media(tableAndUp) {
+    @include media(tabletAndUp) {
       flex: 1 1 0;
     }
   }
@@ -32,7 +32,7 @@
 
   &__quantity-price {
     flex: 0 0 auto;
-    align-self: flex-start;
+    align-self: flex-end;
     justify-self: flex-end;
     order: 3;
 
@@ -79,7 +79,7 @@
     box-shadow: var(--shadow-small);
 
     .line-item__quantity,
-    .line-item__price{
+    .line-item__price {
       display: block;
     }
 

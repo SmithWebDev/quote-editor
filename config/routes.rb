@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'line_item/new'
+  get 'line_item/create'
   resources :line_item_dates
   root to: 'pages#home'
   devise_for :users
